@@ -7,6 +7,7 @@ Welcome to our Developer Guide. This guide serves as a reference for contributor
 This guide can only be kept current, useful, and forward-looking with your contributions. If you come across a tool, technique, or practice that you believe should be considered for our projects, we encourage you to open an issue or pull request to this document to suggest its addition.
 
 ### Guide Contents <!-- omit from toc -->
+- [Open Source](#open-source)
 - [Git Version Control](#git-version-control)
   - [Distinction between Git and GitHub](#distinction-between-git-and-github)
   - [Core Concepts](#core-concepts)
@@ -47,6 +48,7 @@ This guide can only be kept current, useful, and forward-looking with your contr
   - [Dependencies](#dependencies)
   - [Packaging](#packaging)
   - [Containerization](#containerization)
+- [Data Quality Testing](#data-quality-testing)
 - [Security](#security)
   - [Code and Git History](#code-and-git-history)
   - [Dependencies](#dependencies-1)
@@ -59,6 +61,24 @@ This guide can only be kept current, useful, and forward-looking with your contr
   - [Refactoring](#refactoring)
   - [End-of-life](#end-of-life)
 
+## Open Source
+
+**What is Open Source?**  
+Open source refers to code that is freely accessible for others to utilize, alter, and redistribute. Different [licenses](https://opensource.org/osd) exist which indicate exactly what forms of use, alteration and distribution are permissible, and should accompany any open-source project. 
+
+**Benefits of Open Source**  
+
+There are various reasons to consider making a project open source. Below is a sample of potential reasons:  
+
+*Transparency*: When working within a public sector organization, ensuring your work is transparent and open to the public is not only best practice, but a leading principle according to the [Ontario Digital and Data Directive](https://www.ontario.ca/page/ontarios-digital-and-data-directive-2021). Transparency is especially important during the [implementation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9682716/) of any artificial intelligence (AI) initiative.  
+
+*Project Quality*: Open source requires us to reflect on coding best practices, especially in relation to reproducibility, security, privacy, and documentation. The accessibility of open source projects can result in feedback from diverse users, leading to an overall higher quality project as well. 
+
+*Collaboration*: An open source approach can lead to collaborations that may otherwise not have formed. Collaborators can assist in delivering features, improving usability, improving documentation, identifying and correcting bugs, as well as partaking in regular maintenance tasks such as testing and updating dependencies.  
+
+*Efficiency*: Open source software development using version control is a particularly productive framework for collaboration. The accessibility of open-source projects can also reduce duplication of effort in the development of similar tools, workflows, or analyses across different organizations.  
+
+*Alignment*: Open-source approaches can support methodological alignment among collaborators and users of the project.  
 
 ## Git Version Control
 Git is a distributed version control system that enables multiple developers to collaborate on a single project simultaneously. Central to Git is a branching and merging workflow for the correction of bugs and creation of new features, as well as maintenance of a project's complete history of changes. This guide aims to provide only a basic introduction to Git and Github to get you going with your first contributions, but many other resources for more advanced topics not covered can be found online. Guidance is provided for using the command line interface (CLI) as well as [VS Code](https://code.visualstudio.com/), which is a popular and extensible editor with user-friendly Git features that can largely eliminate the need for using the CLI. 
@@ -339,6 +359,22 @@ Packaging your project makes it easier to distribute, share, and install. It may
 
 ### Containerization
 Containerization is a method of packaging your code along with its dependencies so it can run uniformly across different systems, enhancing its portability. Container technologies like Docker allow you to define a container in a text file, which can then be built into a container image. This image can be distributed and run on any system that has the container runtime installed, ensuring your code runs the same way regardless of where it's being executed. Containerization is particularly useful for projects with complex dependencies, as it allows you to control the environment in which your code runs. Containerization is central to cloud native computing, microservice architectures.
+
+## Data Quality Testing
+
+Testing for data quality can be conducted within analytical code to identify potential data errors after data import but before analysis begins. Setting up data checks before it is used for analysis ensures that data is reliable and fit for purpose.
+
+When data is loaded into analytical code, there are typically a set of _expectations_ associated with that data. For instance, specific columns might be expected to be of a certain type (_e.g._ string, integer, datetime, float etc.). Values within a given column may need to meet certain constraints (_e.g._ numeric ranges or strings formatted in a uniform fashion).  
+
+If the data is coming from a source and errors are identified, these errors may have to be communicated back to the data steward. In this case, a report can be generated to identify whether the data meets the pre-defined expectations. If it does not, the generated report (or output) can be sent back to the data steward, allowing them to investigate and correct the data.
+
+Various packages are available to help profile your data on import to ensure that it meets your expectations and is free from error. 
+
+-	**R:** [assertr]( https://github.com/tonyfischetti/assertr), [validate]( https://github.com/data-cleaning/validate), [dataReporter]( https://github.com/ekstroem/dataReporter).
+
+-	**Python:** [data-quality-checker](https://pypi.org/project/data-quality-check/), [great_expectations](https://github.com/great-expectations/great_expectations)
+
+The R [dataReporter]( https://github.com/ekstroem/dataReporter), for instance, can automatically generate a data quality report based on the asserted data expectations.
 
 ## Security
 
