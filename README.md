@@ -372,9 +372,11 @@ Various packages are available to help profile your data on import to ensure tha
 
 -	**R:** [assertr]( https://github.com/tonyfischetti/assertr), [validate]( https://github.com/data-cleaning/validate), [dataReporter]( https://github.com/ekstroem/dataReporter).
 
--	**Python:** [data-quality-checker](https://pypi.org/project/data-quality-check/), [great_expectations](https://github.com/great-expectations/great_expectations)
+-	**Python:** [data-quality-checker](https://pypi.org/project/data-quality-check/), [great_expectations](https://github.com/great-expectations/great_expectations), [Pointblank](https://posit-dev.github.io/pointblank/)
 
 The R [dataReporter]( https://github.com/ekstroem/dataReporter), for instance, can automatically generate a data quality report based on the asserted data expectations.
+
+Similarly, Python's [Pointblank](https://posit-dev.github.io/pointblank/) allows you to assert expectations on your data (data validation rules), generating a validation table. The validation table summarizes the asserted rules and results, treating each of the data validation rules as a unit test for the data. Failed tests provide an indicator of where data quality can be improved.
 
 ## Security
 
