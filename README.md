@@ -48,6 +48,7 @@ This guide can only be kept current, useful, and forward-looking with your contr
   - [Dependencies](#dependencies)
   - [Packaging](#packaging)
   - [Containerization](#containerization)
+- [Data Quality Testing](#data-quality-testing)
 - [Security](#security)
   - [Code and Git History](#code-and-git-history)
   - [Dependencies](#dependencies-1)
@@ -358,6 +359,24 @@ Packaging your project makes it easier to distribute, share, and install. It may
 
 ### Containerization
 Containerization is a method of packaging your code along with its dependencies so it can run uniformly across different systems, enhancing its portability. Container technologies like Docker allow you to define a container in a text file, which can then be built into a container image. This image can be distributed and run on any system that has the container runtime installed, ensuring your code runs the same way regardless of where it's being executed. Containerization is particularly useful for projects with complex dependencies, as it allows you to control the environment in which your code runs. Containerization is central to cloud native computing, microservice architectures.
+
+## Data Quality Testing
+
+Testing for data quality can be conducted within analytical code to identify potential data errors after data import but before analysis begins. Setting up data checks before it is used for analysis ensures that data is reliable and fit for purpose.
+
+When data is loaded into analytical code, there are typically a set of _expectations_ associated with that data. For instance, specific columns might be expected to be of a certain type (_e.g._ string, integer, datetime, float etc.). Values within a given column may need to meet certain constraints (_e.g._ numeric ranges or strings formatted in a uniform fashion).  
+
+If the data is coming from a source and errors are identified, these errors may have to be communicated back to the data steward. In this case, a report can be generated to identify whether the data meets the pre-defined expectations. If it does not, the generated report (or output) can be sent back to the data steward, allowing them to investigate and correct the data.
+
+Various packages are available to help profile your data on import to ensure that it meets your expectations and is free from error. 
+
+-	**R:** [assertr]( https://github.com/tonyfischetti/assertr), [validate]( https://github.com/data-cleaning/validate), [dataReporter]( https://github.com/ekstroem/dataReporter).
+
+-	**Python:** [data-quality-checker](https://pypi.org/project/data-quality-check/), [great_expectations](https://github.com/great-expectations/great_expectations), [Pointblank](https://posit-dev.github.io/pointblank/)
+
+The R [dataReporter]( https://github.com/ekstroem/dataReporter), for instance, can automatically generate a data quality report based on the asserted data expectations.
+
+Similarly, Python's [Pointblank](https://posit-dev.github.io/pointblank/) allows you to assert expectations on your data (data validation rules), generating a validation table. The validation table summarizes the asserted rules and results, treating each of the data validation rules as a unit test for the data. Failed tests provide an indicator of where data quality can be improved.
 
 ## Security
 
