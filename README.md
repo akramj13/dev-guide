@@ -302,17 +302,13 @@ If you are using a repository owned by the organization, then organization owner
 >
 > 1.  On GitHub, navigate to the main page of the repository.
 > 2.  Under your repository name, click  **Settings**. If you cannot see the "Settings" tab, select the  dropdown menu, then click **Settings**.
-
-    ![Screenshot of a repository header showing the tabs. The "Settings" tab is highlighted by a dark orange outline.](https://docs.github.com/assets/cb-28260/images/help/repository/repo-actions-settings.png)
-
+> ![Screenshot of a repository header showing the tabs. The "Settings" tab is highlighted by a dark orange outline.](https://docs.github.com/assets/cb-28260/images/help/repository/repo-actions-settings.png)
 > 3.  In the "Code & automation" section of the sidebar, click  **Copilot**.
-
-    If your repository inherits any exclusions from its parent organization, you'll see a gray box at the top of the page containing details of these exclusions. You cannot edit these settings.
-
+>   If your repository inherits any exclusions from its parent organization, you'll see a gray box at the top of the page containing details of these exclusions. You cannot edit these settings.
 > 4.  In the box following "Paths to exclude in this repository," enter the paths to files from which Copilot should be excluded.
+>  Use the format: `- "/PATH/TO/DIRECTORY/OR/FILE"`, with each path on a separate line. You can add comments by starting a line with `#`.
 
-    Use the format: `- "/PATH/TO/DIRECTORY/OR/FILE"`, with each path on a separate line. You can add comments by starting a line with `#`.
-
+- For additional information, refer to this [the Official GitHub Copilot Docs](https://docs.github.com/en/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot)
 #### Cursor AI
 
 If using a code editor like Cursor, there are two methods of ignoring sensitive data. There are two ways to protect sensitive data from the AI.
