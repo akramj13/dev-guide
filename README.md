@@ -552,6 +552,33 @@ Implementing AI in public health in Ontario—especially for local units like We
 - **Communication**: Clearly explain how AI-driven decisions are made and interpreted, especially when used for policy or intervention planning.
 - **Training and Education**: Support ongoing education for public health professionals and build organizational capacity to lead AI efforts⁵ ¹⁰.
 
+## AI as a Developer Tool
+
+To improve the efficiency and security of the code written with AI, steps can be taken to provide LLMs and copilots with global/repository relevant context to improve the design and relevance of the code generated.
+
+### GitHub Copilot
+
+One can create context files, which contain a set of instructions that could be agency specific and/or repository specific.
+
+1. To do so, simply navigate to the root of the repository and create `.github/copilot-instructions.md` file.
+2. Place instructions in the file. For example:
+
+```md
+We use Bazel for managing Java dependencies, not Maven, so when talking about Java packages, always give me instructions and code samples that use Bazel.
+
+For Python code, whenever installing new packages, add to the requirements.txt file.
+```
+
+This context can be used as a method to force the model to write in the style of what the repository requires.
+
+### Cursor AI
+
+Cursor is more flexible in terms of context, and can have topic specific context, global context, or repository specific context.
+
+- To add global context, navigate to your Cursor settings and add the context there.
+- To add repository specific context, open the `Command Palette` and search for `File: New Cursor Rule`.
+  - With these specific rules you can specify for the rule to be included in every chat, or a specific topic (example: "Use this rule when working with anything related to Pandas").
+
 ---
 
 ## References
